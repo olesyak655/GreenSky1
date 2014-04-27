@@ -1,0 +1,21 @@
+<h1>Register users</h1>
+<div class="div_main">
+<table>
+  <tr>
+    <th class="td_index">First Name
+    <th class="td_index">Last Name
+    <th class="td_index">E-mail
+  </tr>
+<% @users.each do |u| %>
+  <tr> 
+    <td><%=  u.first_name.to_s %>
+    <td><%=  u.last_name.to_s %>
+    <td><%=  u.email.to_s %>
+  </tr>
+<% end %>
+</div>
+
+
+  
+
+
