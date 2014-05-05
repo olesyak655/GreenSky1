@@ -1,15 +1,15 @@
-<h1>Sign up User</h1>
+<h1>Edit Administrator</h1>
 
-<%= form_for @user do |f| %>
+<%= form_for @admin do |f| %>
 
-  <% if @user.errors.any? %>
+  <% if @admin.errors.any? %>
      <div>
         <h2>Form is invalid</h2>
-		<ul>
-		    <% @user.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-   		    <% end %>
-		</ul>
+        <ul>
+            <% @admin.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+        </ul>
       </div>
   <% end %>
 

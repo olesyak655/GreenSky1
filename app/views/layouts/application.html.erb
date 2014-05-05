@@ -10,14 +10,27 @@
 
 <div>
   <% if current_user %>
-    Current user is <%= current_user.email %>
-    <%= link_to "log out", log_out_path %>
+    <% if $is_admin %>
+      Current administrator  is <%= current_user.email %>
+    <% else %>
+      Current user is <%= current_user.email %>
+    <% end %>
+    <%= link_to "Log out", log_out_path %>
     </br>
     </br>
-    <%= link_to "edit", edit_user_path(current_user.id) %>
+    <% if $is_admin %>
+      <%= link_to "Edit", edit_admin_path(current_user.id) %>
+    <% else %>
+      <%= link_to "Edit", edit_user_path(current_user.id) %>
+    <% end %>
   <% else %>
-    <%= link_to "log in", log_in_path %> or 
-    <%= link_to "sing up", sign_up_path %>
+    <table>
+      <tr>
+        <td width="400px" align="left"> <%= link_to "Log in", log_in_path %>
+        <td width="100px" align="center"> <%= link_to "Sing up", sign_up_path %>
+        <td width="50px" align="left"> <%= link_to "Sing up administrator", sign_up_admin_path %>
+      </tr>
+    </table>
   <% end %>
 </div>
 

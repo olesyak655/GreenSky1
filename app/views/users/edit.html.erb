@@ -1,7 +1,7 @@
-<h1>Edit</h1>
+<h1>Edit User</h1>
 
 <%= form_for @user do |f| %>
-  
+
   <% if @user.errors.any? %>
      <div>
         <h2>Form is invalid</h2>
@@ -15,33 +15,33 @@
 
 
 <div class="div_main">
-  
+
 
   <p>
-      <%= f.label :first_name %><br/> 
+      <%= f.label :first_name %><br/>
       <%= f.text_field :first_name %>
   </p>
 
   <p>
       <%= f.label :last_name %><br/>
-      <%= f.text_field :last_name %>	
+      <%= f.text_field :last_name %>
   </p>
 
   <p>
       <%= f.label :email %><br/>
-      <%= f.text_field :email %>	
-  </p>	
- 
+      <%= f.text_field :email %>
+  </p>
+
   <p>
       <%= f.label :password %><br/>
-      <%= f.password_field :password %>	
+      <%= f.password_field :password %>
   </p>
 
   <p>
       <%= f.label :password_confirmation %><br/>
-      <%= f.password_field :password_confirmation %>	
+      <%= f.password_field :password_confirmation %>
   </p>
   <%= f.submit %>
- 
+
 </div>
 <% end %>

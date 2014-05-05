@@ -1,0 +1,36 @@
+<h1>Register Administrators</h1>
+<div class="div_main">
+<table>
+  <tr>
+    <th class="td_index">First Name
+    <th class="td_index">Last Name
+    <th class="td_index">E-mail
+  </tr>
+  <% @admins.each do |a| %>
+  <tr>
+    <td class="td_index"><%=  a.first_name.to_s %>
+      <td class="td_index"><%=  a.last_name.to_s %>
+      <td class="td_index"><%=  a.email.to_s %>
+  </tr>
+  <% end %>
+</table>
+</div>
+<br>
+<br>
+<h1>Register users</h1>
+<div class="div_main">
+<table>
+  <tr>
+    <th class="td_index">First Name
+    <th class="td_index">Last Name
+    <th class="td_index">E-mail
+  </tr>
+  <% @users.each do |u| %>
+  <tr>
+    <td class="td_index"><%=  link_to u.first_name.to_s, user_path(u.id) %>
+    <td class="td_index"><%=  link_to u.last_name.to_s, user_path(u.id) %>
+    <td class="td_index"><%= link_to u.email.to_s, user_path(u.id) %>
+  </tr>
+  <% end %>
+</table>
+</div>

@@ -5,17 +5,21 @@
 <div class="div_main">
   <p>
       <%= label_tag :email %><br/>
-      <%= text_field_tag :email, params[:email] %>	
-  </p>	
- 
+      <%= text_field_tag :email, params[:email] %>
+  </p>
+
   <p>
       <%= label_tag :password %><br/>
-      <%= password_field_tag :password %>	
+      <%= password_field_tag :password %>
+  </p>
+
+  <p>
+        Administrator? <%= check_box_tag :is_admin %>
   </p>
 
   <%= submit_tag %>
- 
-</div>	
+
+</div>
 
 <% end %>
 
