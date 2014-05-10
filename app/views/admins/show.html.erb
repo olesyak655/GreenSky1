@@ -1,2 +1,22 @@
-<h1>Admins#show</h1>
-<p>Find me in app/views/admins/show.html.erb</p>
+<h2>Show Administrator</h2>
+
+<div class="div_main">
+
+  <p>
+      first_name: <%= @admin.first_name %><br/>
+  </p>
+
+  <p>
+      last_name: <%= @admin.last_name %><br/>
+  </p>
+
+  <p>
+      email: <%= @admin.email %><br/>
+  </p>
+
+</div>
+<% if get_role_for_current_user == 1 %>
+    <div>
+    <%= button_to 'Delete Admin', admin_path(@admin.id), method: :delete %>
+    </div>
+<% end %>
