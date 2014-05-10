@@ -41,6 +41,13 @@
       <%= f.label :password_confirmation %><br/>
       <%= f.password_field :password_confirmation %>
   </p>
+
+  <p>
+      Super administrator <%= f.radio_button :role, 1 %>
+      <br><br>
+      Administrator <%= f.radio_button :role, 2 %>
+  </p>
+
   <%= f.submit %>
 
 </div>

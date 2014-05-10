@@ -4,8 +4,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    $is_admin = params[:is_admin]
-    if $is_admin
+    session[:is_admin] = params[:is_adm]
+    if params[:is_adm]
       user = Admin.authenticate(params[:email], params[:password])
       if user
         session[:user_id] = user.id
@@ -31,7 +31,8 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    $is_admin = false
     redirect_to log_in_path
+    session[:is_admin] = nil
   end
+
 end

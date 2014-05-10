@@ -9,21 +9,28 @@
 <body class='<% controller.controller_name %>'>
 
 <div>
+
   <% if current_user %>
-    <% if $is_admin %>
+  <%= current_user %>
+    <% if is_admin %>
       Current administrator  is <%= current_user.email %>
     <% else %>
       Current user is <%= current_user.email %>
     <% end %>
     <%= link_to "Log out", log_out_path %>
+
     </br>
     </br>
-    <% if $is_admin %>
+
+    <% if is_admin %>
       <%= link_to "Edit", edit_admin_path(current_user.id) %>
     <% else %>
       <%= link_to "Edit", edit_user_path(current_user.id) %>
     <% end %>
+
   <% else %>
+
+
     <table>
       <tr>
         <td width="400px" align="left"> <%= link_to "Log in", log_in_path %>
