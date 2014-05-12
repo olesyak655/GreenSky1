@@ -1,4 +1,7 @@
 class Admin < ActiveRecord::Base
+
+  include Autorization
+
   attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :role
 
   before_save :encrypt_password, :add_role_to_admin
@@ -12,8 +15,8 @@ class Admin < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   validates :password, confirmation: true
 
-
-  def self.authenticate(email, password)
+=begin
+ def self.authenticate(email, password)
     admin = Admin.find_by_email(email)
     if admin && admin.password_hash == BCrypt::Engine.hash_secret(password,admin.password_salt)
       admin
@@ -30,6 +33,7 @@ class Admin < ActiveRecord::Base
       self.password_hash = BCrypt::Engine.hash_secret(password,password_salt)
     end
   end
+=end
 
   def add_role_to_admin
     r = Role.find_by_role_code(role)
