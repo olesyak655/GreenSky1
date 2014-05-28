@@ -11,5 +11,24 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.ui.all
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+
+    $(".delete_user").click(function(){
+        alert('hi');
+        var link = $(this);
+        $.ajax({
+          type: "DELETE",
+          url: link.attr("href")
+        }).done(function( msg ) {
+            link.parents('li').remove();
+        });
+        return false;
+    });
+
+    $( "#sortable" ).sortable();
+
+})
