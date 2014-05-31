@@ -1,0 +1,20 @@
+  <table>
+    <tr>
+      <th class="td_index">First Name
+      <th class="td_index">Last Name
+      <th class="td_index">E-mail
+      <th>
+      <th>
+      <th>
+    </tr>
+    <% @admins.each do |a| %>
+    <tr>
+      <td class="td_index"><%= a.first_name.to_s %> </td>
+      <td class="td_index"><%= a.last_name.to_s %> </td>
+      <td class="td_index"><%= a.email.to_s %> </td>
+      <td><%= link_to "|  Show  |", admin_path(a.id) %></td>
+      <td><%= link_to "  Edit  |", edit_admin_path(a.id) %></td>
+      <td><%= link_to "  Destroy  |", admin_path(a.id), class: "delete_user", remote: true, data: {confirm: 'Are you sure?'}, :method => :delete %></td>
+    </tr>
+    <% end %>
+  </table>

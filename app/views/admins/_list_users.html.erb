@@ -5,28 +5,17 @@
     <th class="td_index">E-mail
     <th>
     <th>
+    <th>
   </tr>
   <% @users.each do |u| %>
   <tr>
-    <td class="td_index"><%=  link_to u.first_name.to_s, user_path(u.id) %> </td>
-    <td class="td_index"><%=  link_to u.last_name.to_s, user_path(u.id) %> </td>
-    <td class="td_index"><%= link_to u.email.to_s, user_path(u.id) %> </td>
-    <td><%= link_to "|  Edit  |", edit_user_path(u.id) %></td>
-    <td><%= link_to "  Destroy  |", user_path(u.id), class: "delete_user", remote: true, data: {confirm: 'Are you sure?'}, :method => :delete  %></td>
+    <td class="td_index"><%= u.first_name.to_s%> </td>
+    <td class="td_index"><%= u.last_name.to_s %> </td>
+    <td class="td_index"><%= u.email.to_s %> </td>
+    <td><%= link_to "|  Show  |", user_path(u.id) %></td>
+    <td><%= link_to "  Edit  |", edit_user_path(u.id) %></td>
+    <td><%= link_to "  Destroy  |", user_path(u.id), class: "delete_user", data: {confirm: 'Are you sure?'} %></td>
 
   </tr>
   <% end %>
 </table>
-
-<ul id="sortable">
-  <% @users.each do |u| %>
-  <li>
-    <span class="td_index"><%=  link_to u.first_name.to_s, user_path(u.id) %> </span>
-    <span class="td_index"><%=  link_to u.last_name.to_s, user_path(u.id) %> </span>
-    <span class="td_index"><%= link_to u.email.to_s, user_path(u.id) %> </span>
-    <span><%= link_to "|  Edit  |", edit_user_path(u.id) %></span>
-    <span><%= link_to "  Destroy  |", user_path(u.id), class: "delete_user", remote: true, data: {confirm: 'Are you sure?'}, :method => :delete  %></span>
-
-  </li>
-  <% end %>
-</ul>

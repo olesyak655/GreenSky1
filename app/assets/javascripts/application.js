@@ -18,14 +18,18 @@
 $(document).ready(function() {
 
     $(".delete_user").click(function(){
-        alert('hi');
+
         var link = $(this);
+        console.log(link);
+        console.log(link.parents('tr'));
+
         $.ajax({
           type: "DELETE",
           url: link.attr("href")
         }).done(function( msg ) {
-            link.parents('li').remove();
+            alert('user is removed');
         });
+        link.parents('tr').remove();
         return false;
     });
 

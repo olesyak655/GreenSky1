@@ -1,2 +1,17 @@
  <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js' %>
   <%= javascript_include_tag 'rails' %>
+
+
+
+<ul id="sortable">
+  <% @users.each do |u| %>
+  <li>
+    <span class="td_index"><%=  link_to u.first_name.to_s, user_path(u.id) %> </span>
+    <span class="td_index"><%=  link_to u.last_name.to_s, user_path(u.id) %> </span>
+    <span class="td_index"><%= link_to u.email.to_s, user_path(u.id) %> </span>
+    <span><%= link_to "|  Edit  |", edit_user_path(u.id) %></span>
+    <span><%= link_to "  Destroy  |", user_path(u.id), class: "delete_user", remote: true, data: {confirm: 'Are you sure?'}, :method => :delete  %></span>
+
+  </li>
+  <% end %>
+</ul>

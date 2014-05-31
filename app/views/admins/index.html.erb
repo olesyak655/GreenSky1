@@ -1,21 +1,9 @@
 
 <% if get_role_for_current_user == 1%>
   <h2>Register Administrators</h2>
-  <div class="div_main">
-  <table>
-    <tr>
-      <th class="td_index">First Name
-      <th class="td_index">Last Name
-      <th class="td_index">E-mail
-    </tr>
-    <% @admins.each do |a| %>
-    <tr>
-      <td class="td_index"><%= link_to a.first_name.to_s, admin_path(a.id) %>
-        <td class="td_index"><%= link_to a.last_name.to_s, admin_path(a.id)  %>
-        <td class="td_index"><%= link_to a.email.to_s, admin_path(a.id) %>
-    </tr>
-    <% end %>
-  </table>
+  <div id="admins_list" class="div_main">
+    <%= render :partial => "list_admins" %>
+  </div>
   <br>
   <%= link_to "Add new administrator", sign_up_admin_path %>
   </div>

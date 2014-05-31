@@ -35,4 +35,10 @@ class AdminsController < ApplicationController
     end
   end
 
+  def destroy
+    @admin = Admin.find(params[:id])
+    admin_email = @admin.email
+    @admin.destroy
+  end
+
  end
