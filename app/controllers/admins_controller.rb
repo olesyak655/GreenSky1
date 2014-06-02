@@ -1,7 +1,9 @@
 class AdminsController < ApplicationController
 
+  helper_method :sort_column, :sort_direction
+
   def index
-    @users = User.all
+    @users = User.order(sort_column+ " " + sort_direction)
     @admins = Admin.all
   end
 
@@ -39,6 +41,20 @@ class AdminsController < ApplicationController
     @admin = Admin.find(params[:id])
     admin_email = @admin.email
     @admin.destroy
+  end
+
+  private
+
+  def sort_column
+    if User.column_names.include?(params[:sort])
+       params[:sort]
+    else
+      "first_name"
+    end
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
  end

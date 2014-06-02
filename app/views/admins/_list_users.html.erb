@@ -1,20 +1,18 @@
-<table id="table-1">
+<table id="table-2" class="pretty">
   <tr>
-    <th class="td_index">First Name
-    <th class="td_index">Last Name
-    <th class="td_index">E-mail
-    <th>
-    <th>
-    <th>
+    <th><%= sortable "First Name", "first_name" %>
+    <th><%= sortable "Last Name", "last_name" %>
+    <th><%= sortable "E-mail", "email" %>
+    <th colspan=3>
   </tr>
   <% @users.each do |u| %>
   <tr>
-    <td class="td_index"><%= u.first_name.to_s%> </td>
-    <td class="td_index"><%= u.last_name.to_s %> </td>
-    <td class="td_index"><%= u.email.to_s %> </td>
-    <td><%= link_to "|  Show  |", user_path(u.id) %></td>
-    <td><%= link_to "  Edit  |", edit_user_path(u.id) %></td>
-    <td><%= link_to "  Destroy  |", user_path(u.id), class: "delete_user", data: {confirm: 'Are you sure?'} %></td>
+    <td><%= u.first_name.to_s%> </td>
+    <td><%= u.last_name.to_s %> </td>
+    <td><%= u.email.to_s %> </td>
+    <td><%= link_to "  Show  ", user_path(u.id) %></td>
+    <td><%= link_to "  Edit  ", edit_user_path(u.id) %></td>
+    <td><%= link_to "  Destroy  ", user_path(u.id), class: "delete_user", data: {confirm: 'Are you sure?'} %></td>
 
   </tr>
   <% end %>

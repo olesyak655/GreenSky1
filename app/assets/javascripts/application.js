@@ -36,5 +36,6 @@ $(document).ready(function() {
     $( "#sortable" ).sortable();
 
     $("#table-1").tableDnD();
+    $("#table-2").tableDnD();
 
 })

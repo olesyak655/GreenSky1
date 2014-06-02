@@ -1,17 +1,15 @@
-  <table id="table-1">
+  <table id="table-1" class="pretty">
     <tr>
-      <th class="td_index">First Name
-      <th class="td_index">Last Name
-      <th class="td_index">E-mail
-      <th>
-      <th>
-      <th>
+      <th>First Name
+      <th>Last Name
+      <th>E-mail
+      <th colspan=3>
     </tr>
     <% @admins.each do |a| %>
     <tr>
-      <td class="td_index"><%= a.first_name.to_s %> </td>
-      <td class="td_index"><%= a.last_name.to_s %> </td>
-      <td class="td_index"><%= a.email.to_s %> </td>
+      <td><%= a.first_name.to_s %> </td>
+      <td><%= a.last_name.to_s %> </td>
+      <td><%= a.email.to_s %> </td>
       <td><%= link_to "|  Show  |", admin_path(a.id) %></td>
       <td><%= link_to "  Edit  |", edit_admin_path(a.id) %></td>
       <td><%= link_to "  Destroy  |", admin_path(a.id), remote: true, data: {confirm: 'Are you sure?'}, :method => :delete %></td>
