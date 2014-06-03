@@ -19,4 +19,12 @@ class User < ActiveRecord::Base
     r = Role.find_by_role_code(3)
     self.role_id = r.id
   end
+
+  def self.search(search)
+    if search
+      where('first_name LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
 end
