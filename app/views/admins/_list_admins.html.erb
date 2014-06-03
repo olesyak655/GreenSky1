@@ -1,18 +1,18 @@
   <table id="table-1" class="pretty">
-    <tr>
-      <th>First Name
-      <th>Last Name
-      <th>E-mail
-      <th colspan=3>
-    </tr>
+  <tr>
+    <th><%= link_to "First_name", :sort => "first_name", remote: true %>
+    <th><%= link_to "Last Name", :sort => "last_name" %>
+    <th><%= link_to "E-mail", :sort => "email" %>
+    <th colspan=3>
+  </tr>
     <% @admins.each do |a| %>
     <tr>
       <td><%= a.first_name.to_s %> </td>
       <td><%= a.last_name.to_s %> </td>
       <td><%= a.email.to_s %> </td>
-      <td><%= link_to "|  Show  |", admin_path(a.id) %></td>
-      <td><%= link_to "  Edit  |", edit_admin_path(a.id) %></td>
-      <td><%= link_to "  Destroy  |", admin_path(a.id), remote: true, data: {confirm: 'Are you sure?'}, :method => :delete %></td>
+      <td><%= link_to "  Show  ", admin_path(a.id) %></td>
+      <td><%= link_to "  Edit  ", edit_admin_path(a.id) %></td>
+      <td><%= link_to "  Destroy  ", admin_path(a.id), remote: true, data: {confirm: 'Are you sure?'}, :method => :delete %></td>
     </tr>
     <% end %>
   </table>

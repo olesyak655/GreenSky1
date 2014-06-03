@@ -3,8 +3,8 @@ class AdminsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
-    @users = User.order(sort_column+ " " + sort_direction)
-    @admins = Admin.all
+    @users = User.order(sort_column+ " " + sort_direction).paginate(:per_page => 3, :page => params[:page])
+    @admins = Admin.order(params[:sort])
   end
 
   def new
