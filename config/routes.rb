@@ -32,5 +32,5 @@ GreenSky1::Application.routes.draw do
   resources :sessions
   resources :admins
 
-
+  post "users/:id/edit" => "users#update_password"
 end

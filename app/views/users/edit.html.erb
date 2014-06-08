@@ -3,3 +3,21 @@
 <div id="user_form">
   <%= render :partial => 'form_edit_user' %>
 </div>
+
+<br>
+<div class="reset_password">
+    <%= link_to "Reset password", remote: true %>
+</div>
+
+<div id="password_form">
+  <%= render :partial => 'form_edit_password' %>
+</div>
+
+<br>
+<br>
+<% if get_role_for_current_user == 1 || get_role_for_current_user == 2 %>
+  <%= link_to "Back", admins_path %>
+<% else %>
+    <%= link_to "Back", users_path %>
+<% end %>
+

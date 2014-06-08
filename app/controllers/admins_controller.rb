@@ -1,10 +1,10 @@
 class AdminsController < ApplicationController
 
-  helper_method :sort_column, :sort_direction
+  helper_method :sort_column_users, :sort_direction_users, :sort_column_admins, :sort_direction_admins
 
   def index
-    @users = User.search(params[:search]).order(sort_column+ " " + sort_direction).paginate(:per_page => 3, :page => params[:page])
-    @admins = Admin.order(params[:sort])
+    @users = User.search(params[:search]).order(sort_column_users+ " " + sort_direction_users).paginate(:per_page => 3, :page => params[:page])
+    @admins = Admin.order(sort_column_admins+ " " + sort_direction_admins)
   end
 
   def new
@@ -45,16 +45,27 @@ class AdminsController < ApplicationController
 
   private
 
-  def sort_column
-    if User.column_names.include?(params[:sort])
-       params[:sort]
+  def sort_column_users
+    if User.column_names.include?(params[:sort_users])
+       params[:sort_users]
     else
       "first_name"
     end
   end
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  def sort_direction_users
+    %w[asc desc].include?(params[:direction_users]) ? params[:direction_users] : "asc"
   end
 
+  def sort_column_admins
+    if Admin.column_names.include?(params[:sort_admins])
+       params[:sort_admins]
+    else
+      "first_name"
+    end
+  end
+
+  def sort_direction_admins
+    %w[asc desc].include?(params[:direction_admins]) ? params[:direction_admins] : "asc"
+  end
  end

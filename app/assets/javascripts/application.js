@@ -35,7 +35,25 @@ $(document).ready(function() {
 
     $( "#sortable" ).sortable();
 
-    $("#table-1").tableDnD();
-    $("#table-2").tableDnD();
+    $("#table-users").tableDnD();
+    $("#table-admins").tableDnD();
 
-})
+    $("#users_list th a, #users_list .pagination a").on('click', function() {
+        $.getScript(this.href);
+        return false;
+    });
+
+    $("#admins_list th a").on('click', function() {
+        $.getScript(this.href);
+        return false;
+    });
+
+    $("#users_search input").keyup(function() {
+        $.get($("#users_search").attr("action"), $("#users_search").serialize(), null, "script");
+        return false;
+    });
+
+    $('.reset_password').click(function() {
+        $('#password_form').css('display','block');
+    });
+});

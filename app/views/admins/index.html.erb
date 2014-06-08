@@ -1,6 +1,6 @@
 
 <% if get_role_for_current_user == 1%>
-  <h2>Register Administrators</h2>
+  <h2>The registered Administrators</h2>
   <div id="admins_list" class="div_main">
     <%= render :partial => "list_admins" %>
   </div>
@@ -10,7 +10,7 @@
 <% end %>
 <br>
 <br>
-<h2>Register users</h2>
+<h2>The registered Users</h2>
 <div id="users_list" class="div_main">
   <%= render :partial => "list_users" %>
 </div>

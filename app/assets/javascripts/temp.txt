@@ -22,3 +22,41 @@
     <th><%= link_to "E-mail", :sort => "email" %>
     <th colspan=3>
   </tr>
+
+
+<%= stylesheet_link_tag    "application", :media => "all" %>
+
+
+<%= form_for @user, :url => url_for(:controller => 'users', :action => 'update_password') do |f| %>
+
+  <% if @user.errors.any? %>
+     <div>
+        <h2>Form is invalid</h2>
+        <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+        </ul>
+      </div>
+  <% end %>
+
+
+<div class="div_main">
+  <p>
+      <%= f.label "Old password" %><br/>
+      <%= f.password_field :old_password %>
+  </p>
+
+  <p>
+      <%= f.label "New password" %><br/>
+      <%= f.password_field :password %>
+  </p>
+
+  <p>
+      <%= f.label :password_confirmation %><br/>
+      <%= f.password_field :password_confirmation %>
+  </p>
+  <%= f.submit "update password" %>
+
+</div>
+<% end %>

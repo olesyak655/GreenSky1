@@ -1,8 +1,8 @@
-  <table id="table-1" class="pretty">
+  <table id="table-admins" class="pretty_admins">
   <tr>
-    <th><%= link_to "First_name", :sort => "first_name", remote: true %>
-    <th><%= link_to "Last Name", :sort => "last_name" %>
-    <th><%= link_to "E-mail", :sort => "email" %>
+    <th><%= sortable_admins "First Name", "first_name" %>
+    <th><%= sortable_admins "Last Name", "last_name" %>
+    <th><%= sortable_admins "E-mail", "email" %>
     <th colspan=3>
   </tr>
     <% @admins.each do |a| %>

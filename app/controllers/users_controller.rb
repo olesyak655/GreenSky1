@@ -27,11 +27,27 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-	     redirect_to user_path(params[:id]), :notice => "Is updated!"
+      redirect_to user_path(params[:id]), :notice => "Is updated!"
     else
 	     render action: :edit
     end
   end
+
+  def update_password
+    @user = User.find(params[:id])
+
+    if @user == User.authenticate(@user.email, params[:old_password])
+      params[:user] = {password: params[:password], password_confirmation: params[:password_confirmation]}
+      if @user.update_attributes(params[:user])
+         redirect_to user_path(params[:id]), :notice => "Is updated!"
+      else
+         render action: :edit
+      end
+    else
+      render action: :edit, :notice => "Password is failed! Try again"
+    end
+  end
+
 
   def destroy
     @user = User.find(params[:id])

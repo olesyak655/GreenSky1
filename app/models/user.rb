@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password, :add_role_to_user
 
-  attr_accessor :password
+  attr_accessor :password, :old_password
 
   belongs_to :role
 

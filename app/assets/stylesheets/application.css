@@ -34,26 +34,54 @@
   align: center;
 }
 
-table.pretty {
+.pretty_admins {
     border-collapse: collapse;
 }
 
-.pretty td, .pretty th {
+.pretty_admins td, .pretty_admins th {
     padding: 4px 10px;
     border: solid 1px #AAA;
     align: center;
 }
 
-.pretty th .current {
+.pretty_admins th .current {
   padding-right: 12px;
   background-repeat: no-repeat;
   background-position: right center;
 }
 
-.pretty th .asc {
+.pretty_admins th .asc {
   background-image: url(/images/up_arrow.gif);
 }
 
-.pretty th .desc {
+.pretty_admins th .desc {
   background-image: url(/images/down_arrow.gif);
+}
+
+.pretty_users {
+    border-collapse: collapse;
+}
+
+.pretty_users td, .pretty_users th {
+    padding: 4px 10px;
+    border: solid 1px #AAA;
+    align: center;
+}
+
+.pretty_users th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.pretty_users th .asc {
+  background-image: url(/images/up_arrow.gif);
+}
+
+.pretty_users th .desc {
+  background-image: url(/images/down_arrow.gif);
+}
+
+#password_form {
+  display: none;
 }

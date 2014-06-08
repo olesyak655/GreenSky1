@@ -6,20 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#super_admin = Admin.new
-#super_admin.first_name = 'Oleg'
-#super_admin.last_name = 'Koval'
-#super_admin.email = 'ovk655@mail.ru'
-#
-#password_salt = BCrypt::Engine.generate_salt
-#super_admin.password_salt = password_salt
-#super_admin.password_hash = BCrypt::Engine.hash_secret('olegkoval655',password_salt)
-#super_admin.save
 
-Role.create(role_code: 1,
-            role_name: 'super_admin')
-Role.create(role_code: 2,
-            role_name: 'admin')
+#Role.create(role_code: 1,
+#           role_name: 'super_admin')
+#Role.create(role_code: 2,
+#           role_name: 'admin')
 
 Admin.create(first_name: 'Oleg',
              last_name: 'Koval',
@@ -28,3 +19,37 @@ Admin.create(first_name: 'Oleg',
              password_confirmation: '123456',
              role_code: 1)
 
+Admin.create(first_name: 'Andrey',
+             last_name: 'Koval',
+             email: 'admin1',
+             password: 'admin1',
+             password_confirmation: 'admin1',
+             role_code: 2)
+
+Admin.create(first_name: 'Alex',
+             last_name: 'Koval',
+             email: 'admin2',
+             password: 'admin2',
+             password_confirmation: 'admin2',
+             role_code: 2)
+
+User.create(first_name: 'Olesya',
+             last_name: 'Koval',
+             email: 'user1',
+             password: 'user1',
+             password_confirmation: 'user1',
+             role_code: 3)
+
+User.create(first_name: 'Olga',
+             last_name: 'Koval',
+             email: 'user2',
+             password: 'user2',
+             password_confirmation: 'user2',
+             role_code: 3)
+
+User.create(first_name: 'Irina',
+             last_name: 'Koval',
+             email: 'user3',
+             password: 'user3',
+             password_confirmation: 'user3',
+             role_code: 3)
