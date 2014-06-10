@@ -7,7 +7,7 @@ gem 'therubyracer'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+# gem 'mysql2'
 
 gem "bcrypt", :require => "bcrypt"
 
@@ -32,7 +32,7 @@ gem 'pry'
 
 gem 'will_paginate', '~> 3.0'
 
-
+gem 'pg'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

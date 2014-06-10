@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   attr_accessor :password, :old_password
 
-  belongs_to :role
+  #belongs_to :role
 
   validates :email, presence: true
   validates_uniqueness_of :email

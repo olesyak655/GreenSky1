@@ -8,7 +8,7 @@ class Admin < ActiveRecord::Base
 
   attr_accessor :password, :role
 
-  belongs_to :role
+  #belongs_to :role
 
   validates :email, presence: true
   validates_uniqueness_of :email
