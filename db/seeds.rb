@@ -7,33 +7,33 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-#Role.create(role_code: 1,
-#          role_name: 'super_admin')
-#Role.create(role_code: 2,
-#           role_name: 'admin')
-#Role.create(role_code: 3,
-#           role_name: 'user')
+Role.create(role_code: 1,
+          role_name: 'super_admin')
+Role.create(role_code: 2,
+           role_name: 'admin')
+Role.create(role_code: 3,
+           role_name: 'user')
 
-#Admin.create(first_name: 'Oleg',
-#           last_name: 'Koval',
-#           email: 'ovk',
-#            password: '123456',
-#            password_confirmation: '123456',
-#            role: 1)
+Admin.create(first_name: 'Oleg',
+           last_name: 'Koval',
+           email: 'ovk',
+            password: '123456',
+            password_confirmation: '123456',
+            role: 1)
 
-#Admin.create(first_name: 'Andrey',
-#             last_name: 'Koval',
-#             email: 'admin1',
-#             password: 'admin1',
-#             password_confirmation: 'admin1',
-#             role: 2)
+Admin.create(first_name: 'Andrey',
+             last_name: 'Koval',
+             email: 'admin1',
+             password: 'admin1',
+             password_confirmation: 'admin1',
+             role: 2)
 
-#Admin.create(first_name: 'Alex',
-#            last_name: 'Koval',
-#             email: 'admin2',
-#             password: 'admin2',
-#            password_confirmation: 'admin2',
-#            role: 2)
+Admin.create(first_name: 'Alex',
+            last_name: 'Koval',
+             email: 'admin2',
+             password: 'admin2',
+            password_confirmation: 'admin2',
+            role: 2)
 
 User.create(first_name: 'Olesya',
              last_name: 'Koval',
