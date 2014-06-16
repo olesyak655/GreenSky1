@@ -13,19 +13,20 @@
 //= require jquery
 //= require jquery.ui.all
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require_tree .
 
 $(document).ready(function() {
 
-    $(".delete_user").click(function(){
+    $("body").on("click", ".delete_user", function(){
 
         var link = $(this);
         console.log(link);
         console.log(link.parents('tr'));
 
         $.ajax({
-          type: "DELETE",
-          url: link.attr("href")
+            type: "DELETE",
+            url: link.attr("href")
         }).done(function( msg ) {
             alert('user is removed');
         });
@@ -33,27 +34,37 @@ $(document).ready(function() {
         return false;
     });
 
-    $( "#sortable" ).sortable();
+  //  $( "#sortable" ).sortable();
+
 
     $("#table-users").tableDnD();
     $("#table-admins").tableDnD();
 
-    $("#users_list th a, #users_list .pagination a").on('click', function() {
+   $("body").on("click", "#users_list th a, #users_list .pagination a", function() {
         $.getScript(this.href);
         return false;
     });
 
-    $("#admins_list th a").on('click', function() {
+    $("body").on("click", "#admins_list th a, #admins_list .pagination a", function() {
         $.getScript(this.href);
         return false;
     });
 
     $("#users_search input").keyup(function() {
-        $.get($("#users_search").attr("action"), $("#users_search").serialize(), null, "script");
+        console.log($("#users_search input").val().length);
+        console.log($("#users_search input").val());
+        if ($("#users_search input").val().length >=3) {
+            $.get($("#users_search").attr("action"), $("#users_search").serialize(), null, "script");
+            $("#users_search input").focus();
+        }
         return false;
     });
 
     $('.reset_password').click(function() {
         $('#password_form').css('display','block');
+    });
+
+    $('.reset_password_admin').click(function() {
+        $('#password_form_admin').css('display','block');
     });
 });

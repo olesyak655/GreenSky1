@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :is_admin
   helper_method :get_role_for_current_user
+  helper_method :get_role
 
   def is_admin
     @is_admin = session[:is_admin]
@@ -16,6 +17,10 @@ class ApplicationController < ActionController::Base
 
   def get_role_for_current_user
     Role.find(current_user.role_id).role_code
+  end
+
+  def get_role(user)
+    Role.find(user.role_id).role_code
   end
 
   def current_user

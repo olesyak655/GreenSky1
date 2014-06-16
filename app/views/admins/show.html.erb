@@ -1,4 +1,4 @@
-<h2>Show Administrator</h2>
+<h3>Show Administrator</h3>
 
 <div class="div_main">
 
@@ -17,7 +17,7 @@
 </div>
 <% if get_role_for_current_user == 1 %>
     <div>
-    <%= button_to 'Delete Admin', admin_path(@admin.id), method: :delete %>
+    <%= button_to 'Delete Admin', admin_path(@admin.id), method: :delete, class: "btn btn-info" %>
     </div>
 <% end %>
 <br>

@@ -1,14 +1,14 @@
 
-<%= form_tag admins_path, :method => 'get', :id => "users_search" do %>
+<%= form_tag admins_path, :method => 'get', :id => "users_search", class: "form-search" do %>
   <%= hidden_field_tag :direction, params[:direction] %>
   <%= hidden_field_tag :sort, params[:sort] %>
   <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
+    <%= text_field_tag :search, params[:search], class: "search-query" %>
+    <%= submit_tag "Search", class: "btn btn-info", :name => nil %>
   </p>
 <% end %>
 
-<table id="table-users" class="pretty_users">
+<table id="table-users" class="pretty_users table table-condensed">
   <tr>
     <th><%= sortable_users "First Name", "first_name" %>
     <th><%= sortable_users "Last Name", "last_name" %>
@@ -20,11 +20,16 @@
     <td><%= u.first_name.to_s%> </td>
     <td><%= u.last_name.to_s %> </td>
     <td><%= u.email.to_s %> </td>
-    <td><%= link_to "  Show  ", user_path(u.id) %></td>
-    <td><%= link_to "  Edit  ", edit_user_path(u.id) %></td>
-    <td><%= link_to "  Destroy  ", user_path(u.id), class: "delete_user", data: {confirm: 'Are you sure?'} %></td>
+    <td>
+       <%= link_to "  Show  ", user_path(u.id), class: "btn btn-success btn-mini" %>
+    </td>
+    <td><%= link_to "  Edit  ", edit_user_path(u.id), class: "btn btn-success btn-mini" %></td>
+    <td>
+        <%= link_to "  Destroy  ", user_path(u.id), class: "delete_user btn btn-danger btn-mini", data: {confirm: 'Are you sure?'} %>
+    </td>
 
   </tr>
   <% end %>
 </table>
+
 <%= will_paginate @users %>

@@ -1,10 +1,10 @@
-<%= form_for @user do |f| %>
+<%= form_for @admin, class: "form-horizontal" do |f| %>
 
-  <% if @user.errors.any? %>
+  <% if @admin.errors.any? %>
      <div>
         <h2>Form is invalid</h2>
         <ul>
-            <% @user.errors.full_messages.each do |msg| %>
+            <% @admin.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
             <% end %>
         </ul>
@@ -36,7 +36,15 @@
       </div>
   </div>
 
-  <%= f.submit "Edit", class: "btn btn-info"%>
+  <% if get_role_for_current_user == 1 %>
+    <div class="control-group">
+        Super administrator <%= f.radio_button :role, 1, :checked =>get_role(@admin) == 1 %>
+        <br><br>
+        Administrator <%= f.radio_button :role, 2, :checked =>get_role(@admin) == 2 %>
+    </div>
+  <% end %>
+
+  <%= f.submit "Edit", class: "btn btn-info" %>
 
 </div>
 <% end %>

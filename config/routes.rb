@@ -26,11 +26,12 @@ GreenSky1::Application.routes.draw do
   #get "users/new"
 
   get "users/edit"
-  root :to => "users#new"
+  root :to => "sessions#new"
 
   resources :users
   resources :sessions
   resources :admins
 
   post "users/:id/edit" => "users#update_password"
+  post "admins/:id/edit" => "admins#update_password"
 end

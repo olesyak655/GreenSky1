@@ -1,4 +1,4 @@
-  <table id="table-admins" class="pretty_admins">
+  <table id="table-admins" class="pretty_admins table table-condensed">
   <tr>
     <th><%= sortable_admins "First Name", "first_name" %>
     <th><%= sortable_admins "Last Name", "last_name" %>
@@ -10,9 +10,11 @@
       <td><%= a.first_name.to_s %> </td>
       <td><%= a.last_name.to_s %> </td>
       <td><%= a.email.to_s %> </td>
-      <td><%= link_to "  Show  ", admin_path(a.id) %></td>
-      <td><%= link_to "  Edit  ", edit_admin_path(a.id) %></td>
-      <td><%= link_to "  Destroy  ", admin_path(a.id), remote: true, data: {confirm: 'Are you sure?'}, :method => :delete %></td>
+      <td><%= link_to "  Show  ", admin_path(a.id), class: "btn btn-success btn-mini" %></td>
+      <td><%= link_to "  Edit  ", edit_admin_path(a.id), class: "btn btn-success btn-mini" %></td>
+      <td><%= link_to "  Destroy  ", admin_path(a.id), class: "delete_user btn btn-danger btn-mini", data: {confirm: 'Are you sure?'}, :method => :delete %></td>
     </tr>
     <% end %>
   </table>
+
+  <%= will_paginate @admins %>

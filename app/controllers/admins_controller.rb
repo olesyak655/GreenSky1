@@ -4,7 +4,7 @@ class AdminsController < ApplicationController
 
   def index
     @users = User.search(params[:search]).order(sort_column_users+ " " + sort_direction_users).paginate(:per_page => 3, :page => params[:page])
-    @admins = Admin.order(sort_column_admins+ " " + sort_direction_admins)
+    @admins = Admin.order(sort_column_admins+ " " + sort_direction_admins).paginate(:per_page => 5, :page => params[:page])
   end
 
   def new
@@ -30,10 +30,28 @@ class AdminsController < ApplicationController
 
   def update
     @admin = Admin.find(params[:id])
+    if get_role_for_current_user == 2
+      params[:admin].merge!(role: get_role_for_current_user)
+    end
     if @admin.update_attributes(params[:admin])
       redirect_to admins_path, :notice => "Is updated!"
     else
       render action: :edit
+    end
+  end
+
+  def update_password
+    @admin = Admin.find(params[:id])
+
+    if @admin == Admin.authenticate(@admin.email, params[:old_password])
+      params[:admin] = {password: params[:password], password_confirmation: params[:password_confirmation], role: get_role(@admin)}
+      if @admin.update_attributes(params[:admin])
+         redirect_to admin_path(params[:id]), :notice => "Is updated!"
+      else
+         render action: :edit
+      end
+    else
+      render action: :edit, :notice => "Password is failed! Try again"
     end
   end
 

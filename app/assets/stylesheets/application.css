@@ -85,3 +85,7 @@
 #password_form {
   display: none;
 }
+
+#password_form_admin {
+  display: none;
+}

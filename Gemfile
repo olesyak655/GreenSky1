@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
-gem 'therubyracer'
+#gem 'therubyracer'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -22,6 +22,10 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+
+  gem 'less-rails'
+  gem 'therubyracer', :platform => :ruby
+  gem 'twitter-bootstrap-rails'
 end
 
 gem 'jquery-rails', '~> 2.1'
@@ -33,6 +37,8 @@ gem 'pry'
 gem 'will_paginate', '~> 3.0'
 
 gem 'pg'
+
+gem 'cancan'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
