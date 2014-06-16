@@ -4,7 +4,7 @@ class AdminsController < ApplicationController
 
   def index
     @users = User.search(params[:search]).order(sort_column_users+ " " + sort_direction_users).paginate(:per_page => 3, :page => params[:page])
-    @admins = Admin.order(sort_column_admins+ " " + sort_direction_admins).paginate(:per_page => 5, :page => params[:page])
+    @admins = Admin.order(sort_column_admins+ " " + sort_direction_admins)
   end
 
   def new
