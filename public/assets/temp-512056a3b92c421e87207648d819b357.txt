@@ -1,0 +1,71 @@
+ <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js' %>
+  <%= javascript_include_tag 'rails' %>
+
+
+
+<ul id="sortable">
+  <% @users.each do |u| %>
+  <li>
+    <span class="td_index"><%=  link_to u.first_name.to_s, user_path(u.id) %> </span>
+    <span class="td_index"><%=  link_to u.last_name.to_s, user_path(u.id) %> </span>
+    <span class="td_index"><%= link_to u.email.to_s, user_path(u.id) %> </span>
+    <span><%= link_to "|  Edit  |", edit_user_path(u.id) %></span>
+    <span><%= link_to "  Destroy  |", user_path(u.id), class: "delete_user", remote: true, data: {confirm: 'Are you sure?'}, :method => :delete  %></span>
+
+  </li>
+  <% end %>
+</ul>
+
+  <tr>
+    <th><%= link_to "First_name", :sort => "first_name" %>
+    <th><%= link_to "Last Name", :sort => "last_name" %>
+    <th><%= link_to "E-mail", :sort => "email" %>
+    <th colspan=3>
+  </tr>
+
+
+<%= stylesheet_link_tag    "application", :media => "all" %>
+
+
+<%= form_for @user, :url => url_for(:controller => 'users', :action => 'update_password') do |f| %>
+
+  <% if @user.errors.any? %>
+     <div>
+        <h2>Form is invalid</h2>
+        <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+        </ul>
+      </div>
+  <% end %>
+
+
+<div class="div_main">
+  <p>
+      <%= f.label "Old password" %><br/>
+      <%= f.password_field :old_password %>
+  </p>
+
+  <p>
+      <%= f.label "New password" %><br/>
+      <%= f.password_field :password %>
+  </p>
+
+  <p>
+      <%= f.label :password_confirmation %><br/>
+      <%= f.password_field :password_confirmation %>
+  </p>
+  <%= f.submit "update password" %>
+
+</div>
+<% end %>
+
+
+http://still-beyond-7610.herokuapp.com/ | git@heroku.com:still-beyond-7610.git
+
+
+
+ <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
