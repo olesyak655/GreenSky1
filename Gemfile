@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "1.9.3", :engine => "jruby", :engine_version => "1.7.8"
+
 gem 'rails', '3.2.13'
 
 #gem 'therubyracer'
@@ -39,6 +41,8 @@ gem 'will_paginate', '~> 3.0'
 gem 'pg'
 
 # gem 'cancan'
+
+gem 'rails_12factor'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
